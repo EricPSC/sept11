@@ -102,7 +102,8 @@ var function_loop_mouse_enter = function(){
 }
 
 
-game_list_item[0].addEventListener('mouseover', function(){
+game_list_item[0].addEventListener('mouseenter', function(){
+		game_list_item[1].classList.toggle("closed");
 		game_list_item[1].classList.toggle("open");
 });
 
