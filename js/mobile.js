@@ -7,7 +7,7 @@ window.addEventListener('load', function(){
         threshold = 150,
         allowed_time = 200,
         elapsed_time,
-        start_time
+        start_time;
         
     function handle_swipe(swipe_right){
         if (swipe_right){
@@ -39,4 +39,4 @@ window.addEventListener('load', function(){
         event.preventDefault();
     }, false);
     
-});
+} false);
