@@ -51,7 +51,7 @@ add_submit.addEventListener('click',function(){
 });
 
 function make_minus(target){
-	function_loop_mouse_enter();
+		function_loop_mouse_enter();
 	if (target.parentNode == game_unordered_list){
 		if (target.children.length == 0){
 			if (target != target_parent.children[0]){
@@ -62,8 +62,8 @@ function make_minus(target){
 			add_minus_listener();
 			};
 		}else{if(target.children.length == 1){target.removeChild(target.children[0])};}
-	};
-};
+	}
+}
 
    
 
@@ -71,7 +71,7 @@ function make_minus(target){
     	if (target.innerText === "-"){ 
     	target.parentNode.parentNode.removeChild(target.parentNode);
        }
-    };
+    }
 
     var add_minus_listener = function(){
 		var class_minus = document.getElementsByClassName("minus");
@@ -87,19 +87,29 @@ document.getElementById("name_input_box").addEventListener('keydown', function k
         if(event.keyCode == 13) {
             document.getElementById('add_submit_button').click();
        
-    };
+    }
 });
 
 var function_loop_mouse_enter = function(){
-	for (var i= 0;i<game_list_item.length;i++){
+	for (var i = 0;i < game_list_item.length; i++){
 		game_list_item[i].addEventListener('mouseenter', function(){
-		   	for (var i = 2;i < game_list_item.length - 2; i++) {
+		   	for (var i = 2;game_list_item.length - 2; i++) {
 			   	if (game_list_item[i].children.length>0){
 			   		game_list_item[i].removeChild(game_list_item[i].children[0]);
-			   	};
-   			};
+			   	}
+   			}
 		});
-	};
-};
+	}
+}
 
-function_loop_mouse_enter();
+game_list_item[0].addEventListener('mouseover', function(){
+		game_list_item[1].classList.toggle("open");
+			
+			
+	});
+
+game_list_item[0].addEventListener('mouseout', function(){	
+		game_list_item[1].classList.toggle("closed");
+
+});
+
