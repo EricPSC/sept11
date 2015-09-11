@@ -93,7 +93,7 @@ document.getElementById("name_input_box").addEventListener('keydown', function k
 var function_loop_mouse_enter = function(){
 	for (var i= 0;i<game_list_item.length;i++){
 		game_list_item[i].addEventListener('mouseenter', function(){
-		   	for (var i = 2; game_list_item.length - 2; i++) {
+		   	for (var i = 2;i < game_list_item.length - 2; i++) {
 			   	if (game_list_item[i].children.length>0){
 			   		game_list_item[i].removeChild(game_list_item[i].children[0]);
 			   	};
