@@ -86,7 +86,7 @@ document.getElementById("name_input_box").addEventListener('keydown', function k
     
         if(event.keyCode == 13) {
             document.getElementById('add_submit_button').click();
-       
+       game_list_item[1].classList.add("closed");
     }
 });
 
@@ -101,14 +101,10 @@ var function_loop_mouse_enter = function(){
 		});
 	}
 }
-game_list_item[0].addEventListener('mouseout', function(){	
-		game_list_item[1].classList.toggle("closed");
 
-});
 
-game_list_item[0].addEventListener('mouseenter', function(){
+game_list_item.addEventListener('mouseover', function(event){
 		game_list_item[1].classList.toggle("open");
 });
-
 
 
