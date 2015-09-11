@@ -22,8 +22,8 @@ function get_event_target(event_name) {
 };
 
 function get_index(target){
-	 target_parent = target.parentElement;
-	for (var i=0;i<target_parent.children.length;i++){
+	target_parent= target.parentElement;
+	for (var i = 0;i < target_parent.children.length;i++){
 		if (target_parent.children[i] === target){		
 		};
 	};
@@ -55,26 +55,17 @@ function make_minus(target){
 	if (target.parentNode == game_unordered_list){
 		if (target.children.length == 0){
 			if (target != target_parent.children[0]){
-		    new_minus = document.createElement('button');
+			new_minus = document.createElement('button');
 		  	target.appendChild(new_minus);
 			new_minus.innerText = "-"; 
 			new_minus.classList.toggle("minus");
 			add_minus_listener();
-			}
-		}
-	}
-}
-var function_loop_mouse_enter = function() {
-	for(var i = 0; i < game_list_item.length; i++)
-	game_list_item[i].addEventListener('mouseenter', function(event){
-		for(var i = 2; game_list_item.length - 2; i++){
-			if(game_list_item[i].children.length > 0){
-				game_list_item[i].removeChild(game_list_item[i].children[0]);
-			}
-		}
-	});
-}
+			};
+		}else{if(target.children.length == 1){target.removeChild(target.children[0])};}
+	};
+};
 
+   
 
     var function_minus = function(target) {  
     	if (target.innerText === "-"){ 
@@ -88,4 +79,27 @@ var function_loop_mouse_enter = function() {
 	        class_minus[i].addEventListener('click', function_minus, false);
 	    }
 	}
-	
+
+
+
+document.getElementById("name_input_box").addEventListener('keydown', function keydown(){
+    
+        if(event.keyCode == 13) {
+            document.getElementById('add_submit_button').click();
+       
+    };
+});
+
+var function_loop_mouse_enter = function(){
+	for (var i= 0;i<game_list_item.length;i++){
+		game_list_item[i].addEventListener('mouseenter', function(){
+		   	for (var i = 2; game_list_item.length - 2; i++) {
+			   	if (game_list_item[i].children.length>0){
+			   		game_list_item[i].removeChild(game_list_item[i].children[0]);
+			   	};
+   			};
+		});
+	};
+};
+
+function_loop_mouse_enter();
