@@ -1,6 +1,8 @@
 var game_unordered_list = document.getElementsByClassName('game_unordered_list')[0];
 var game_list_item = game_unordered_list.children;
 var add_submit = document.getElementById('add_submit_button');
+var target_parent;
+var new_minus;
 
 function add_game(name_value){
    var new_game = name_value;
@@ -20,8 +22,8 @@ function get_event_target(event_name) {
 };
 
 function get_index(target){
-	target_parent= target.parentElement;
-	for (i=0;i<target_parent.children.length;i++){
+	 target_parent = target.parentElement;
+	for (var i=0;i<target_parent.children.length;i++){
 		if (target_parent.children[i] === target){		
 		};
 	};
@@ -29,8 +31,9 @@ function get_index(target){
 
 game_unordered_list.onclick = function(event) {
     var target = get_event_target(event);
-    get_index(target);
-    make_minus(target);     
+    get_index(target);    
+    make_minus(target); 
+    function_minus(target);   
 };
 
 game_list_item[0].addEventListener('click',function(){
@@ -48,10 +51,11 @@ add_submit.addEventListener('click',function(){
 });
 
 function make_minus(target){
+	function_loop_mouse_enter();
 	if (target.parentNode == game_unordered_list){
 		if (target.children.length == 0){
 			if (target != target_parent.children[0]){
-			var new_minus = document.createElement('button');
+		    new_minus = document.createElement('button');
 		  	target.appendChild(new_minus);
 			new_minus.innerText = "-"; 
 			new_minus.classList.toggle("minus");
@@ -59,13 +63,23 @@ function make_minus(target){
 			}
 		}
 	}
-};
+}
+var function_loop_mouse_enter = function() {
+	for(var i = 0; i < game_list_item.length; i++)
+	game_list_item[i].addEventListener('mouseenter', function(event){
+		for(var i = 2; game_list_item.length - 2; i++){
+			if(game_list_item[i].children.length > 0){
+				game_list_item[i].removeChild(game_list_item[i].children[0]);
+			}
+		}
+	});
+}
 
-   
 
-    var function_minus = function() {
-        
-        alert("function_minus");
+    var function_minus = function(target) {  
+    	if (target.innerText === "-"){ 
+    	target.parentNode.parentNode.removeChild(target.parentNode);
+       }
     };
 
     var add_minus_listener = function(){
@@ -74,6 +88,4 @@ function make_minus(target){
 	        class_minus[i].addEventListener('click', function_minus, false);
 	    }
 	}
-
-
-
+	
